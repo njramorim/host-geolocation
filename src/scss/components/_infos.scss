@@ -1,0 +1,82 @@
+.infos {
+	margin: 0 5%;
+	padding-bottom: ($defaultMargin * 2);
+	text-align: left;
+	width: 90%;
+	opacity: 0;
+	transition: opacity 0.3s ease-in 0.6s;
+
+	> ul {
+		display: inline-block;
+		width: 100%;
+
+		> li {
+			display:inline-block;
+			font-size: 14px;
+			line-height: 17px;
+			margin: 5px 0;
+
+			&:first-child:before {				
+				display: block;
+				font-weight: 700;
+				margin: $defaultMargin 0;
+				text-transform: uppercase;
+			}
+
+			&:after {
+				content: ' | ';
+				display:inline-block;
+				margin:0px 5px;
+			}
+
+			&:last-child:after {
+				content: none;
+			}
+
+			> span:first-of-type {
+				font-weight: 300;
+				text-transform: capitalize;    
+				text-shadow: 1px 0px 0px rgba(0, 0, 0, 0.67);
+
+				+ span {
+					font-size: 17px;
+					font-weight: 700;
+				}
+			}
+		}
+
+		&.user {
+
+			li:first-child:before {
+				border-bottom:1px solid $redColor;
+				content: 'User Infos';
+			}
+
+			li > span:first-of-type {
+				color: $redColor;
+			}
+		}
+
+		&.domain {
+
+			li:first-child:before {
+				border-bottom:1px solid $blueColor;
+				content: 'Domain Infos';
+			}
+
+			li > span:first-of-type {
+				color: $blueColor;
+			}
+		}
+	}
+
+	&:after {
+	  content: '';
+	  display: table;
+	  clear: both;
+	}
+}
+
+.map-active .infos { 
+	opacity: 1;
+}

@@ -1,0 +1,25 @@
+//colors
+$darkColor: #2D3239;
+$redColor: #E41200;
+$blueColor: #194CCC;
+
+//size
+$wrapper: 600px;
+$defaultMargin: 20px;
+$elementSize: 60px; 
+$formHeight: 150px; 
+
+//effects
+$customShadow: 1px 2px 3px 0px rgba($darkColor, 0.29);
+$zeroShadow: 1px 2px 3px 0px rgba($darkColor, 0.1);
+
+
+//responsive
+$smartPhone: 650px;
+$spWrapper: 300px;
+
+//transition
+@keyframes fade {
+	0% {opacity: 0}
+	100% {opacity: 1}
+}

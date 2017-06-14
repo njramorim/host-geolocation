@@ -1,0 +1,22 @@
+@import 'reset', 
+	'variables',
+	'custom',
+	'fonts',
+	'./components/form',
+	'./components/map', 
+	'./components/infos', 
+	'./components/modal'; 
+
+body {
+	color: $darkColor;
+	font-family: 'Lato', sans-serif;
+	overflow-y: scroll;
+}
+
+#app {
+	height: 100%;
+	text-align: center;
+	width: 100%;
+	overflow: hidden;
+}
+

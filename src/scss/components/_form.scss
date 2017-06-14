@@ -1,0 +1,223 @@
+.formContainer { 
+	display: block;
+	font-size: 24px;
+	height: $formHeight;
+	margin: 15% auto; 
+	padding: $defaultMargin 0;
+	position: relative;
+	text-align: left;
+	transition: margin 0.45s ease-in-out 0.3s;
+	width: $wrapper;
+
+	.domainLocation {
+		margin-bottom: $defaultMargin;
+
+		legend {
+			font-weight: 300;
+			height: ($elementSize / 2);
+			text-align: center;
+			text-transform: uppercase; 
+			padding-bottom: ($defaultMargin / 4);
+			position: relative;
+
+			p {
+				background-color: #ffffff;
+				padding: 0px 4px;
+			}
+
+			b {
+				font-weight: 700;
+			}
+
+			&:after, &:before {     
+		    background-color: $darkColor;
+			 	content: ''; 
+		    display: inline-block;
+		    height: 1px;
+		    left: 50%;
+		    margin-left: -100vw;
+		    margin-top:-2px;
+		    position: absolute;
+		    top: 50%;
+		    width: 200vw;
+		    z-index: -1;
+			}
+		}
+
+		div {
+			display: inline-block;
+			position:relative;
+			text-align: left;
+			width:70%;
+
+			input {
+				border: 1px solid $darkColor;
+				box-shadow: $zeroShadow;
+				color: inherit;
+				display: block;
+				font-size: inherit;
+				height: $elementSize;
+				padding: 5px ($elementSize + 5px) 5px 5px;
+				transition: box-shadow 0.2s;
+				width: 100%;
+
+				&:hover {
+					box-shadow: $customShadow;
+				}
+			}
+
+			button {
+				background-color: transparent;
+				border: 1px solid $darkColor;
+				border-left: none;
+				cursor: pointer;
+				float: right;
+				height: $elementSize;
+				margin-top: -$elementSize;
+				position: relative;
+				transition: background-color 0.2s ease-in;
+				width: $elementSize;
+
+				&:before {
+					background-color: $darkColor;
+					content: '';
+					height: 70%;
+					left:0;
+					position: absolute;
+					top:15%;
+					transition: height 0.2s, top 0.2s;
+					width: 1px;
+				}
+
+				&:hover {
+					background-color: darken(#ffffff, 1.5%);
+
+					&:before {
+						height: 75%;
+						top: 12.5%;
+					}
+				}
+			}
+		}
+	}
+
+	.userLocation {
+		display: inline-block;
+		height: $elementSize;
+		position: absolute;
+		right: 0;
+		top: ($elementSize / 2) + $defaultMargin;
+		width: 30%;
+
+		&:before {
+			background-color: $darkColor; 
+			border-radius: 50%;
+			color: #ffffff;
+			content: 'or';
+			display: inline-block;
+			font-size: 14px;
+			font-weight: 700;
+			height: ($elementSize / 2);
+			letter-spacing: 0.4px;
+			line-height: ($elementSize / 2) - 2; 
+			margin: ($elementSize / 4);
+			position: absolute;
+			text-align: center;
+			width: ($elementSize / 2);
+		}
+
+		button {
+			background: transparent;
+			border:1px solid $darkColor;
+			cursor: pointer;
+			display: inline-block;
+			float: right;
+			width: calc(100% - #{$elementSize});
+			
+			&:hover {
+				background-color: darken(#ffffff, 1.5%);
+			}
+
+			&.find {
+				box-shadow: $zeroShadow;
+				height: $elementSize;
+				transition: background-color 0.2s ease-out, box-shadow 0.2s;
+				&:hover {
+					box-shadow: $customShadow;
+				}
+			}
+
+			&.reset {
+				font-size: 12px;
+				height: ($elementSize / 3);
+				opacity: 1;
+				transition: opacity 0.3s ease-in;
+
+				&:disabled { 
+					opacity: 0;
+				}
+			}
+		}
+	}
+}
+
+.map-active .formContainer {
+	margin: ($defaultMargin * 2) auto $defaultMargin;
+}
+
+
+
+//RESPONSIVE	
+@media screen and (max-width: $smartPhone) {
+	.formContainer { 
+		font-size: 18px;
+		margin: 30% auto 15%; 
+		min-width: $spWrapper;
+		padding: ($defaultMargin / 2) 0;
+		width: 90%;
+
+		.domainLocation {
+
+			legend {
+				height: $elementSize;
+			}
+
+			div {
+
+				input {
+					font-size: 13px;
+				}
+			}
+		}
+
+		.userLocation {
+			top: ($elementSize + ($defaultMargin / 2));
+
+			&:before {
+		    height: 25px;
+		    letter-spacing: 0px;
+		    line-height: 23px;
+		    margin: 17px 3px;   
+		    width: 25px;
+			}
+
+			button {
+		    width: calc(100% - (#{$elementSize} / 2));
+			}
+		}
+	}
+
+	.map-active .formContainer {
+		margin: $defaultMargin auto;
+	}
+}
+
+
+@media screen and (max-width: ($spWrapper + 50px)) {
+	.map-active .formContainer, .formContainer { 
+		font-size: 17px;
+		left: 50%;
+		margin-left: -150px;
+		width: 300px;
+	}
+}
